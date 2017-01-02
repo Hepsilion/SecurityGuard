@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SecurityGuard</string>
+    <string name="title_activity_phone_security">PhoneSecurityActivity</string>
+</resources>
