@@ -1,4 +1,4 @@
-package org.android.securityguard.home;
+package org.android.securityguard.home.adapter;
 
 import android.content.Context;
 import android.view.View;

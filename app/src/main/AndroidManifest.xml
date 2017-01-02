@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.android.securityguard">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -13,9 +16,58 @@
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".home.HomeActivity" />
+
+        <!-- 手机防盗 -->
+        <activity
+            android:name=".safe.LostFindActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".safe.Setup1Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".safe.Setup2Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".safe.Setup3Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".safe.ContactSelectActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".safe.Setup4Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <receiver android:name=".safe.receiver.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- 2. 配置设备超级管理员广播接收者-->
+        <receiver android:name=".safe.receiver.MyDeviceAdminReceiver"
+            android:description="@string/sample_device_admin_description"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".safe.service.GPSLocationService"
+            android:persistent="true">
+        </service>
     </application>
 </manifest>

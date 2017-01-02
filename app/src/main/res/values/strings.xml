@@ -1,4 +1,61 @@
 <resources>
     <string name="app_name">SecurityGuard</string>
     <string name="title_activity_phone_security">PhoneSecurityActivity</string>
+    <string name="sample_device_admin_description">我是设备的超级管理员。开启我之后就可以清除数据，远程锁屏。</string>
+    <string name="sample_device_admin">手机卫士管理器</string>
+
+    <!-- HomeActivity -->
+    <string name="request_admin_permission">获取超级管理员权限，用于远程锁屏和清除数据</string>
+
+    <!-- LostFindActivity -->
+    <string name="lostfind_safe">手机防盗</string>
+    <string name="lostfind_safe_phone">安全号码</string>
+    <string name="lostfind_switch_on">防盗保护是否开启</string>
+    <string name="lostfind_resetting">重新进入设置向导</string>
+    <string name="lostfind_message_instruction">短信指令功能</string>
+    <string name="lostfind_play_alarm_music_inst">#*alarm*#</string>
+    <string name="lostfind_play_alarm_music">播放报警音乐</string>
+    <string name="lostfind_gps_track_inst">#*locate*#</string>
+    <string name="lostfind_gps_track">GPS追踪</string>
+    <string name="lostfind_remote_lock_screen_inst">#*lockScreen*#</string>
+    <string name="lostfind_remote_lock_screen">远程锁屏</string>
+    <string name="lostfind_remote_delete_data_inst">#*wipedata*#</string>
+    <string name="lostfind_remote_delete_data">远程删除数据</string>WS
+
+    <!-- BaseSetupActivity -->
+    <string name="setup_invalid_action">无效动作，移动太慢</string>
+
+    <!-- Setup1Activity -->
+    <string name="setup_first_page">当前页面已经是第一页</string>
+
+    <string name="setup_safe_guide">手机防盗向导</string>
+    <string name="setup_sim_change_alarm">SIM卡变更报警</string>
+    <string name="setup_gps_track">GPS追踪</string>
+    <string name="setup_remote_lock_screen">远程锁屏</string>
+    <string name="setup_remote_delete_data">远程删除数据</string>
+
+    <!-- Setup2Activity -->
+    <string name="setup_sim_not_bind">您还没有绑定SIM卡!</string>
+    <string name="setup_sim_bind_success">SIM卡绑定成功!</string>
+    <string name="setup_sim_binded">SIM卡已经绑定!</string>
+
+    <string name="setup_sim_bind">SIM卡绑定</string>
+    <string name="setup_sim_bind_info">"    绑定SIM卡后，当再次重启手机时，若SIM卡信息发生变化，手机卫士会自动发送报警短信给安全号码！"</string>
+
+    <!-- App -->
+    <!--<string name="setup_sim_unchanged">SIM卡未发生变化，还是您的手机</string>-->
+    <!--<string name="setup_sim_changed">SIM卡变化了</string>-->
+    <!--<string name="setup_sim_send_message">"您的亲友手机的SIM卡已经被更换! "</string>-->
+
+    <!-- Setup3Activity -->
+    <string name="setup_enter_security_phoneno">" 请输入安全号码"</string>
+    <string name="setup_select_security_contact">选择安全联系人</string>
+
+    <!-- ContactSelectActivity -->
+    <string name="setup_select_contact">选择联系人</string>
+
+    <!-- Setup4Activity -->
+    <string name="setup_safe_switched_on">防盗保护已经开启</string>
+    <string name="setup_safe_switched_off">防盗保护没有开启</string>
+    <string name="setup_safe_setting_complete">"恭喜! 设置完成"</string>
 </resources>

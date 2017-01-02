@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 
+import org.android.securityguard.R;
+import org.android.securityguard.home.HomeActivity;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -20,15 +22,11 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-
-import org.android.securityguard.home.HomeActivity;
-import org.android.securityguard.R;
 
 /**
  * Created by Hepsilion on 2017/1/1.
