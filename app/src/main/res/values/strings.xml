@@ -58,4 +58,22 @@
     <string name="setup_safe_switched_on">防盗保护已经开启</string>
     <string name="setup_safe_switched_off">防盗保护没有开启</string>
     <string name="setup_safe_setting_complete">"恭喜! 设置完成"</string>
+
+    <!-- SecurityPhoneActivity -->
+    <string name="security_title_text">通讯卫士</string>
+    <string name="security_no_added_black_item">您还没有添加黑名单</string>
+    <string name="security_no_more_data">没有更多的数据了</string>
+
+    <!-- BlackContactAdapter -->
+    <string name="security_delete_failed">删除失败!</string>
+
+    <!-- AddBlackNumberActivity -->
+    <string name="security_add_phoneno">请输入要添加的号码</string>
+    <string name="security_add_name">请输入名称</string>
+    <string name="security_mode_intercept_phone">电话拦截</string>
+    <string name="security_mode_intercept_sms">短信拦截</string>
+    <string name="security_phone_name_blank">电话号码和名称不能为空!</string>
+    <string name="security_must_select_mode">请选择拦截模式</string>
+    <string name="security_phone_added">该号码已经被添加至黑名单中</string>
+    <string name="security_add_to_blacklist">添加至黑名单</string>
 </resources>

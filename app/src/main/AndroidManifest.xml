@@ -4,8 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
     <application
         android:allowBackup="true"
@@ -25,26 +29,28 @@
         <!-- 手机防盗 -->
         <activity
             android:name=".safe.LostFindActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".safe.Setup1Activity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".safe.Setup2Activity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".safe.Setup3Activity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".safe.ContactSelectActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".safe.Setup4Activity"
+            android:screenOrientation="portrait" />
+
+        <!-- 通讯卫士 -->
+        <activity android:name=".black.SecurityPhoneActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".black.AddBlackNumberActivity"
             android:screenOrientation="portrait" >
         </activity>
 
@@ -53,21 +59,39 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <!-- 2. 配置设备超级管理员广播接收者-->
-        <receiver android:name=".safe.receiver.MyDeviceAdminReceiver"
+        <!-- 2. 配置设备超级管理员广播接收者 -->
+        <receiver
+            android:name=".safe.receiver.MyDeviceAdminReceiver"
             android:description="@string/sample_device_admin_description"
             android:label="@string/sample_device_admin"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
-                android:resource="@xml/device_admin_sample"/>
+                android:resource="@xml/device_admin_sample" />
+
             <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+        <!-- 拦截黑名单信息 -->
+        <receiver android:name=".black.receiver.InterceptSmsReceiver">
+            <intent-filter android:priority="214783647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <!-- 拦截黑名单电话 -->
+        <receiver android:name=".black.receiver.InterceptCallReceiver">
+            <intent-filter android:priority="214783647">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
 
-        <service android:name=".safe.service.GPSLocationService"
-            android:persistent="true">
-        </service>
+        <service
+            android:name=".safe.service.GPSLocationService"
+            android:persistent="true" />
+
+
     </application>
+
 </manifest>
