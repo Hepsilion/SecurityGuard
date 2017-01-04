@@ -19,4 +19,6 @@
     <color name="rose_red">#E72993</color>
     <color name="light_rose_red">#F73CA7</color>
     <color name="bright_green">#26E587</color>
+    <color name="bright_blue">#4a4be1</color>
+    <color name="dark_gray">#ff999999</color>
 </resources>

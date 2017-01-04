@@ -17,12 +17,15 @@ import android.widget.Toast;
 import org.android.securityguard.R;
 import org.android.securityguard.app.AppManagerActivity;
 import org.android.securityguard.black.SecurityPhoneActivity;
+import org.android.securityguard.cache.CacheClearListActivity;
 import org.android.securityguard.home.adapter.HomeAdapter;
+import org.android.securityguard.process.ProcessManagerActivity;
 import org.android.securityguard.safe.LostFindActivity;
 import org.android.securityguard.safe.dialog.EnterPasswordDialog;
 import org.android.securityguard.safe.dialog.SetupPasswordDialog;
 import org.android.securityguard.safe.receiver.MyDeviceAdminReceiver;
 import org.android.securityguard.safe.utils.MD5;
+import org.android.securityguard.settings.SettingsActivity;
 import org.android.securityguard.virus.VirusScanActivity;
 
 public class HomeActivity extends Activity {
@@ -65,14 +68,17 @@ public class HomeActivity extends Activity {
                         startActivity(VirusScanActivity.class);
                         break;
                     case 4://缓存清理
+                        startActivity(CacheClearListActivity.class);
                         break;
                     case 5://进程管理
+                        startActivity(ProcessManagerActivity.class);
                         break;
                     case 6://流量统计
                         break;
                     case 7://高级工具
                         break;
                     case 8://设置中心
+                        startActivity(SettingsActivity.class);
                         break;
                 }
             }

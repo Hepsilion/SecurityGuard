@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingView">
+        <attr name="settile" format="string"/>
+        <attr name="status_on" format="string"/>
+        <attr name="status_off" format="string"/>
+        <attr name="status_ischecked" format="boolean"/>
+    </declare-styleable>
+</resources>

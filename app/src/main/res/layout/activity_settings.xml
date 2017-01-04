@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include layout="@layout/titlebar"/>
+    <org.android.securityguard.settings.widget.SettingView
+        android:id="@+id/sv_blacknumber_set"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:status_on="黑名单拦截已开启"
+        app:status_off="黑名单拦截已关闭"
+        app:settile="黑名单拦截设置"/>
+    <org.android.securityguard.settings.widget.SettingView
+        android:id="@+id/sv_applock_set"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:status_on="程序锁已开启"
+        app:status_off="程序锁已关闭"
+        app:settile="程序锁设置"/>
+</LinearLayout>

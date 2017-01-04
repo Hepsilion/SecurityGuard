@@ -69,6 +69,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".cache.CacheClearListActivity" />
         <activity android:name=".cache.CleanCacheActivity" />
+        <activity android:name=".process.ProcessManagerActivity" />
+        <activity android:name=".process.ProcessManagerSettingActivity" />
+        <activity android:name=".settings.SettingsActivity"></activity>
+
 
         <receiver android:name=".safe.receiver.BootCompleteReceiver">
             <intent-filter>
@@ -107,11 +111,12 @@
             android:name=".safe.service.GPSLocationService"
             android:persistent="true" />
 
-        <!-- 锁屏自动清理进程-->
-        <service android:name=".process.service.AutoKillProcessService" android:persistent="true"/>
+        <!-- 锁屏自动清理进程 -->
+        <service
+            android:name=".process.service.AutoKillProcessService"
+            android:persistent="true" />
 
-        <activity android:name=".process.ProcessManagerActivity" />
-        <activity android:name=".process.ProcessManagerSettingActivity"></activity>
+
     </application>
 
 </manifest>
