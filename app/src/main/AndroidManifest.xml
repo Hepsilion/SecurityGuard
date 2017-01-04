@@ -4,12 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
 
     <application
         android:allowBackup="true"
@@ -47,11 +47,24 @@
             android:screenOrientation="portrait" />
 
         <!-- 通讯卫士 -->
-        <activity android:name=".black.SecurityPhoneActivity"
+        <activity
+            android:name=".black.SecurityPhoneActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".black.AddBlackNumberActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <!-- 软件管家 -->
+        <activity android:name=".app.AppManagerActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- 病毒查杀 -->
+        <activity android:name=".virus.VirusScanActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".black.AddBlackNumberActivity"
-            android:screenOrientation="portrait" >
+        <activity android:name=".virus.VirusScanSpeedActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <receiver android:name=".safe.receiver.BootCompleteReceiver">
@@ -76,14 +89,14 @@
         <!-- 拦截黑名单信息 -->
         <receiver android:name=".black.receiver.InterceptSmsReceiver">
             <intent-filter android:priority="214783647">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
         <!-- 拦截黑名单电话 -->
         <receiver android:name=".black.receiver.InterceptCallReceiver">
             <intent-filter android:priority="214783647">
-                <action android:name="android.intent.action.PHONE_STATE"/>
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
 

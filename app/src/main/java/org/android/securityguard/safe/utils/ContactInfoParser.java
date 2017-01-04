@@ -19,7 +19,7 @@ public class ContactInfoParser {
         List<ContactInfo> contacts=new ArrayList<ContactInfo>();
 
         ContentResolver resolver=context.getContentResolver();
-        Uri uri= Uri.parse("content://com.android.contacts/raw_contact");
+        Uri uri= Uri.parse("content://com.android.contacts/raw_contacts");
         Uri datauri=Uri.parse("content://com.android.contacts/data");
 
         //1. 查询raw_contacts表，把联系人的id取出来

@@ -15,12 +15,15 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import org.android.securityguard.R;
+import org.android.securityguard.app.AppManagerActivity;
+import org.android.securityguard.black.SecurityPhoneActivity;
 import org.android.securityguard.home.adapter.HomeAdapter;
 import org.android.securityguard.safe.LostFindActivity;
 import org.android.securityguard.safe.dialog.EnterPasswordDialog;
 import org.android.securityguard.safe.dialog.SetupPasswordDialog;
 import org.android.securityguard.safe.receiver.MyDeviceAdminReceiver;
 import org.android.securityguard.safe.utils.MD5;
+import org.android.securityguard.virus.VirusScanActivity;
 
 public class HomeActivity extends Activity {
     private GridView gv_home;
@@ -53,10 +56,13 @@ public class HomeActivity extends Activity {
                         }
                         break;
                     case 1://通讯卫士
+                        startActivity(SecurityPhoneActivity.class);
                         break;
                     case 2://软件管家
+                        startActivity(AppManagerActivity.class);
                         break;
                     case 3://病毒查杀
+                        startActivity(VirusScanActivity.class);
                         break;
                     case 4://缓存清理
                         break;

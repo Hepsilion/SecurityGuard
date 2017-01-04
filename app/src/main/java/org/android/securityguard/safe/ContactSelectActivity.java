@@ -66,7 +66,7 @@ public class ContactSelectActivity extends Activity {
         new Thread(){
             @Override
             public void run() {
-                //contacts= ContactInfoParser.getSystemContact(ContactSelectActivity.this);
+                contacts= ContactInfoParser.getSystemContact(ContactSelectActivity.this);
                 contacts.addAll(ContactInfoParser.getSystemContact(ContactSelectActivity.this));
                 mHandler.sendEmptyMessage(10);
             }

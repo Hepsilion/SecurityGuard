@@ -92,7 +92,7 @@ public class BlackNumberDao {
      */
     public boolean isBlackNumber(String number){
         SQLiteDatabase db=blackNumberOpenHelper.getReadableDatabase();
-        Cursor cursor=db.query("blackumber", null, "number=?", new String[]{number}, null, null, null);
+        Cursor cursor=db.query("blacknumber", null, "number=?", new String[]{number}, null, null, null);
         if(cursor.moveToNext()){
             cursor.close();
             db.close();

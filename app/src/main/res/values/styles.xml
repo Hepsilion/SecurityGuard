@@ -38,4 +38,22 @@
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+    <!-- TextView 12样式 -->
+    <style name="textview12sp" parent="wrapcontent">
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 宽度为0dp，高度为包裹内容，权重为1 -->
+    <style name="zero_widthwrapcontent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <!-- 黄色条目中的TextView控件，字体14视频，图片间距为5dp的textview -->
+    <style name="tvyellow14sp" parent="zero_widthwrapcontent">
+        <item name="android:textSize">14sp</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/bright_yellow</item>
+    </style>
 </resources>

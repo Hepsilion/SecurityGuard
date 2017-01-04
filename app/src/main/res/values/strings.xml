@@ -76,4 +76,30 @@
     <string name="security_must_select_mode">请选择拦截模式</string>
     <string name="security_phone_added">该号码已经被添加至黑名单中</string>
     <string name="security_add_to_blacklist">添加至黑名单</string>
+
+    <!-- AppManagerActivity -->
+    <string name="app_manager_title">软件管家</string>
+    <string name="app_manager_start">启动</string>
+    <string name="app_manager_uninstall">卸载</string>
+    <string name="app_manager_share">分享</string>
+    <string name="app_manager_setting">设置</string>
+
+    <!-- EngineUtils -->
+    <string name="app_manager_advise_msg">"推荐您使用一款软件，名称叫: "</string>
+    <string name="app_manager_advise_app_downsite">", 下载路径: https://play.google.com/store/apps/details?id="</string>
+    <string name="app_manager_app_no_launch">该应用没有启动界面</string>
+    <string name="app_manager_app_uninstall_need_root">卸载系统应用，必须要root权限</string>
+    <string name="app_manager_app_uninstall_permission_grant">请授权黑马小护卫root权限</string>
+    <string name="app_manager_app_uninstall_no_permission">您没有权限卸载此应用</string>
+
+    <!-- VirusScanActivity -->
+    <!--<string name="virus_not_yet_scan">您还没有查杀病毒!</string>-->
+    <string name="virus_scan">病毒查杀</string>
+    <string name="virus_all_scan">全盘扫描</string>
+    <string name="virus_all_scan_and_safe">全盘扫描手机，杀毒更彻底</string>
+
+    <!-- VirusScanSpeedActivity -->
+    <string name="virus_scan_title_process">病毒查杀进度</string>
+    <string name="virus_scan_begin">初始化杀毒引擎中...</string>
+    <string name="virus_scan_complete">扫描完成!</string>
 </resources>
