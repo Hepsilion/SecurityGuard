@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
     <application
         android:allowBackup="true"
@@ -49,23 +50,25 @@
         <!-- 通讯卫士 -->
         <activity
             android:name=".black.SecurityPhoneActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".black.AddBlackNumberActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <!-- 软件管家 -->
-        <activity android:name=".app.AppManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".app.AppManagerActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 病毒查杀 -->
-        <activity android:name=".virus.VirusScanActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name=".virus.VirusScanSpeedActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".virus.VirusScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".virus.VirusScanSpeedActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".cache.CacheClearListActivity" />
+        <activity android:name=".cache.CleanCacheActivity" />
 
         <receiver android:name=".safe.receiver.BootCompleteReceiver">
             <intent-filter>
@@ -104,7 +107,11 @@
             android:name=".safe.service.GPSLocationService"
             android:persistent="true" />
 
+        <!-- 锁屏自动清理进程-->
+        <service android:name=".process.service.AutoKillProcessService" android:persistent="true"/>
 
+        <activity android:name=".process.ProcessManagerActivity" />
+        <activity android:name=".process.ProcessManagerSettingActivity"></activity>
     </application>
 
 </manifest>
