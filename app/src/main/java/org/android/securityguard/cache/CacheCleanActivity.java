@@ -17,13 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.android.securityguard.R;
-import org.w3c.dom.Text;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
-public class CleanCacheActivity extends AppCompatActivity {
+public class CacheCleanActivity extends AppCompatActivity {
     protected static final int CLEANNING=100;
     private AnimationDrawable animation;
     private long cacheMemory;
@@ -37,8 +36,6 @@ public class CleanCacheActivity extends AppCompatActivity {
     private FrameLayout mCleanCacheFL;
     private FrameLayout mFinishCleanFL;
 
-
-
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -50,7 +47,7 @@ public class CleanCacheActivity extends AppCompatActivity {
                         animation.stop();
                         mCleanCacheFL.setVisibility(View.GONE);
                         mFinishCleanFL.setVisibility(View.VISIBLE);
-                        mSizeTV.setText("成功清理: "+Formatter.formatFileSize(CleanCacheActivity.this, cacheMemory));
+                        mSizeTV.setText("成功清理: "+Formatter.formatFileSize(CacheCleanActivity.this, cacheMemory));
                     }
                     break;
             }
@@ -58,7 +55,7 @@ public class CleanCacheActivity extends AppCompatActivity {
     };
 
     private void formatMemory(long memory){
-        String cacheMemoryStr= Formatter.formatFileSize(CleanCacheActivity.this, memory);
+        String cacheMemoryStr= Formatter.formatFileSize(CacheCleanActivity.this, memory);
         String memoryStr;
         String memoryUnit;
 
@@ -82,13 +79,14 @@ public class CleanCacheActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clean_cache);
 
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.rose_red));
-        ((TextView)findViewById(R.id.tv_title)).setText("缓存清理");
+        ((TextView)findViewById(R.id.tv_title)).setText(R.string.cacheclean_clean);
 
         ImageView mLeftImgV= (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgV.setImageResource(R.drawable.back);
         mLeftImgV.setOnClickListener(listener);
 
         animation= (AnimationDrawable) findViewById(R.id.imgv_trashbin_cacheclean).getBackground();
+        animation.setOneShot(false);
         animation.start();
 
         mMemoryTV= (TextView) findViewById(R.id.tv_cleancache_memory);
@@ -121,9 +119,7 @@ public class CleanCacheActivity extends AppCompatActivity {
                     }
 
                     Random rand=new Random();
-                    int i=rand.nextInt();
-                    i=rand.nextInt(1024);
-                    memory+=1024*i;
+                    memory+=1024*rand.nextInt(1024);
                     if(memory>cacheMemory){
                         memory=cacheMemory;
                     }
@@ -151,7 +147,7 @@ public class CleanCacheActivity extends AppCompatActivity {
                 return;
             }
         }
-        Toast.makeText(CleanCacheActivity.this, "清理完毕", Toast.LENGTH_SHORT).show();
+        Toast.makeText(CacheCleanActivity.this, R.string.cacheclean_clean_finish, Toast.LENGTH_SHORT).show();
     }
 
     View.OnClickListener listener=new View.OnClickListener() {

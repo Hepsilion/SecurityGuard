@@ -25,7 +25,7 @@
                 <TextView
                     style="@style/wrapcontent"
                     android:layout_marginTop="15dp"
-                    android:text="已清理垃圾文件: "
+                    android:text="@string/cacheclean_already_cleaned_cache"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
                 <LinearLayout

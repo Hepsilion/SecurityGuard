@@ -28,9 +28,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CacheClearListActivity extends AppCompatActivity {
+public class CacheScanActivity extends AppCompatActivity {
     protected static final int SCANNING=100;
     protected static final int FINISH=101;
+
     private AnimationDrawable animation;
 
     private TextView mRecommandTV;  //建议清理
@@ -53,7 +54,7 @@ public class CacheClearListActivity extends AppCompatActivity {
                 case SCANNING:
                     PackageInfo info= (PackageInfo) msg.obj;
                     mRecommandTV.setText("正在扫描: "+info.packageName);
-                    mCanCleanTV.setText("已扫描缓存: "+ Formatter.formatFileSize(CacheClearListActivity.this, cacheMemory));
+                    mCanCleanTV.setText("已扫描缓存: "+ Formatter.formatFileSize(CacheScanActivity.this, cacheMemory));
                     mCacheInfos.clear();
                     mCacheInfos.addAll(cacheInfos);
                     adapter.notifyDataSetChanged();
@@ -65,7 +66,7 @@ public class CacheClearListActivity extends AppCompatActivity {
                         mCacheBtn.setEnabled(true);
                     }else{
                         mCacheBtn.setEnabled(false);
-                        Toast.makeText(CacheClearListActivity.this, "您的手机洁净如新!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CacheScanActivity.this, R.string.cacheclean_phone_clear, Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
@@ -76,12 +77,12 @@ public class CacheClearListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_cache_clear_list);
+        setContentView(R.layout.activity_cache_scan);
 
         packageManager=getPackageManager();
 
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.rose_red));
-        ((TextView)findViewById(R.id.tv_title)).setText("缓存扫描");
+        ((TextView)findViewById(R.id.tv_title)).setText(R.string.cache_scan);
 
         ImageView mLeftImg= (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImg.setImageResource(R.drawable.back);
@@ -98,7 +99,7 @@ public class CacheClearListActivity extends AppCompatActivity {
         animation.setOneShot(false);
         animation.start();
 
-        adapter=new CacheCleanAdapter(CacheClearListActivity.this, mCacheInfos);
+        adapter=new CacheCleanAdapter(CacheScanActivity.this, mCacheInfos);
         mCacheLV.setAdapter(adapter);
 
         fillData();
@@ -126,11 +127,18 @@ public class CacheClearListActivity extends AppCompatActivity {
                     msg.what=SCANNING;
                     handler.sendMessage(msg);
                 }
+                Message msg=Message.obtain();
+                msg.what=FINISH;
+                handler.sendMessage(msg);
             }
         };
         thread.start();
     }
 
+    /**
+     * 获取某个包名对应的应用程序的缓存大小
+     * @param info
+     */
     public void getCacheSize(PackageInfo info){
         try {
             Method method=PackageManager.class.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
@@ -171,7 +179,8 @@ public class CacheClearListActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_cleanall:
                     if(cacheMemory>0){
-                        Intent intent=new Intent(CacheClearListActivity.this, CleanCacheActivity.class);
+                        Intent intent=new Intent(CacheScanActivity.this, CleanCacheActivity.class);
+                        intent.putExtra("cacheMemory", cacheMemory);
                         startActivity(intent);
                         finish();
                     }
