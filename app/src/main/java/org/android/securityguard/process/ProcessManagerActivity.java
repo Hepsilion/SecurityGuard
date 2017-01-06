@@ -48,7 +48,7 @@ public class ProcessManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_process_manager);
 
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_green));
-        ((TextView)findViewById(R.id.tv_title)).setText("进程管理");
+        ((TextView)findViewById(R.id.tv_title)).setText(R.string.process_management);
 
         ImageView mLeftImgV= (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgV.setImageResource(R.drawable.back);
@@ -213,9 +213,7 @@ public class ProcessManagerActivity extends AppCompatActivity {
     private void cleanProcess(){
         manager= (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 
-
         long saveMemory=0;
-
         int count=0;
         List<TaskInfo> killedTaskInfos=new ArrayList<TaskInfo>();
         for(TaskInfo taskInfo:userTaskInfos){

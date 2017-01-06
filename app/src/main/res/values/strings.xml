@@ -102,4 +102,61 @@
     <string name="virus_scan_title_process">病毒查杀进度</string>
     <string name="virus_scan_begin">初始化杀毒引擎中...</string>
     <string name="virus_scan_complete">扫描完成!</string>
+
+    <!--CacheScanActivity-->
+    <string name="cache_scan">"缓存扫描"</string>
+    <string name="cacheclean_phone_clear">"您的手机洁净如新!"</string>
+
+    <!--CacheCleanActivity-->
+    <string name="cacheclean_clean">"缓存清理"</string>
+    <string name="cacheclean_already_cleaned_cache">"已清理垃圾文件: "</string>
+    <string name="cacheclean_clean_finish">"清理完毕"</string>
+
+    <!-- -->
+    <string name="process_management">"进程管理"</string>
+    <!-- OperatorSetActivity -->
+    <string name="traffic_operator_selection">运营商选择</string>
+    <string name="traffic_operator_info_setting">"运营商信息设置"</string>
+    <string name="traffic_operatorset_string">"    仅一次简单设置，以后即可便捷矫正流量，时刻保持与运营商保持精准同步。"</string>
+
+    <!-- TrafficMonitoringActivity -->
+    <string name="traffic_traffic_monitoring">"流量监控"</string>
+    <string name="traffic_not_set_operator">"您还没有设置运营商信息"</string>
+    <string name="traffic_traffic_enough">"本月流量充足,请放心使用! "</string>
+    <string name="traffic_traffic_today_used">"今天已用: "</string>
+    <string name="traffic_traffic_month_used">"本月已用: "</string>
+    <string name="traffic_traffic_month">"本月流量: "</string>
+    <string name="traffic_traffic_to_finish">"您的套餐流量即将用完! "</string>
+
+    <!-- AdvancedToolsActivity -->
+    <string name="advanced_tools_title">高级工具</string>
+    <string name="advanced_number_belongto">号码归属地查询</string>
+    <string name="advanced_sms_backup">短信备份</string>
+    <string name="advanced_sms_restore">短信还原</string>
+    <string name="advanced_app_lock">程序锁</string>
+
+    <!--NumBelongtoActivity-->
+    <string name="advanced_number_belongto_title">号码归属地查询</string>
+    <string name="advanced_number_belongto_search">请输入需要查询的号码</string>
+    <string name="advanced_number_belongto_search_enter">请输入要查询的号码</string>
+
+    <!-- SMSBackupActivity -->
+    <string name="advanced_one_key_backup">一键备份</string>
+    <string name="advanced_backup_cancel">取消备份</string>
+    <string name="advanced_backup_success">备份成功</string>
+    <string name="advanced_no_sms">您还没有短信!</string>
+
+    <!-- SMSRestoreActivity -->
+    <string name="advanced_one_key_restore">一键还原</string>
+    <string name="advanced_restore_cancel">取消还原</string>
+    <string name="advanced_restore_success">还原成功</string>
+
+    <!-- AppLockActivity -->
+    <string name="advanced_not_yet_locked">未加锁</string>
+    <string name="advanced_locked">已加锁</string>
+
+    <!-- EnterPasswordActivity -->
+    <string name="advanced_safe_password">请输入防盗密码</string>
+    <string name="advanced_enter_password">请输入密码</string>
+    <string name="advanced_wrong_password">密码不正确!</string>
 </resources>

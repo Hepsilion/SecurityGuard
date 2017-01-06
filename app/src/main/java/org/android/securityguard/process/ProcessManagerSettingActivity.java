@@ -36,6 +36,7 @@ public class ProcessManagerSettingActivity extends AppCompatActivity {
 
         ImageView mLeftImgV= (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgV.setImageResource(R.drawable.back);
+        mLeftImgV.setOnClickListener(listener);
 
         mShowSysAppsTgb= (ToggleButton) findViewById(R.id.tgb_showsys_process);
         mShowSysAppsTgb.setChecked(mSharedPreferences.getBoolean("showSystemProcess", true));

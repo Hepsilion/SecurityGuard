@@ -2,15 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.android.securityguard">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 手机杀毒 -->
+    <!-- 缓存清理 -->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <!-- 进程管理 -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:allowBackup="true"
@@ -46,7 +67,6 @@
         <activity
             android:name=".safe.Setup4Activity"
             android:screenOrientation="portrait" />
-
         <!-- 通讯卫士 -->
         <activity
             android:name=".black.SecurityPhoneActivity"
@@ -54,7 +74,6 @@
         <activity
             android:name=".black.AddBlackNumberActivity"
             android:screenOrientation="portrait" />
-
         <!-- 软件管家 -->
         <activity
             android:name=".app.AppManagerActivity"
@@ -67,12 +86,31 @@
         <activity
             android:name=".virus.VirusScanSpeedActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".cache.CacheClearListActivity" />
-        <activity android:name=".cache.CleanCacheActivity" />
+        <activity android:name=".cache.CacheScanActivity" />
+        <activity android:name=".cache.CacheCleanActivity" />
         <activity android:name=".process.ProcessManagerActivity" />
         <activity android:name=".process.ProcessManagerSettingActivity" />
-        <activity android:name=".settings.SettingsActivity"></activity>
+        <activity android:name=".settings.SettingsActivity" />
+        <activity android:name=".traffic.OperatorSetActivity" />
+        <activity android:name=".traffic.TrafficMonitoringActivity" />
 
+        <!-- 高级工具 -->
+        <activity
+            android:name=".advance.AdvancedToolsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".advance.NumBelongtoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".advance.SMSBackupActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".advance.SMSRestoreActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".advance.AppLockActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".advance.EnterPasswordActivity"></activity>
 
         <receiver android:name=".safe.receiver.BootCompleteReceiver">
             <intent-filter>
@@ -115,6 +153,18 @@
         <service
             android:name=".process.service.AutoKillProcessService"
             android:persistent="true" />
+
+        <!--  -->
+        <service
+            android:name=".traffic.service.TrafficMonitoringService"
+            android:persistent="true" />
+        <service android:name=".advance.service.AppLockService" />
+
+        <receiver android:name=".traffic.service.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
 
     </application>

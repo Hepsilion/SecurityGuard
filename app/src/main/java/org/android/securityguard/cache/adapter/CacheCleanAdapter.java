@@ -59,7 +59,6 @@ public class CacheCleanAdapter extends BaseAdapter {
         holder.mAppIconImgV.setImageDrawable(cacheInfo.appIcon);
         holder.mAppNameTV.setText(cacheInfo.appName);
         holder.mCacheSizeTV.setText(Formatter.formatFileSize(context, cacheInfo.cacheSize));
-
         return view;
     }
 

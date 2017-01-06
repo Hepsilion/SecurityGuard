@@ -179,7 +179,7 @@ public class CacheScanActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_cleanall:
                     if(cacheMemory>0){
-                        Intent intent=new Intent(CacheScanActivity.this, CleanCacheActivity.class);
+                        Intent intent=new Intent(CacheScanActivity.this, CacheCleanActivity.class);
                         intent.putExtra("cacheMemory", cacheMemory);
                         startActivity(intent);
                         finish();

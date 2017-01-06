@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/titlebar"/>
+    <EditText
+        android:id="@+id/et_num_num_belongto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:inputType="phone"
+        android:drawableLeft="@drawable/numbelongtoicon"
+        android:background="@drawable/numbelongto_et_bg"
+        android:drawablePadding="3dp"
+        android:hint="@string/advanced_number_belongto_search_enter"/>
+    <Button
+        android:id="@+id/btn_searchnumbelongto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_numaddressbg_selector"/>
+    <TextView
+        android:id="@+id/tv_searchresult"
+        style="@style/textview16sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/deep_gray"/>
+</LinearLayout>

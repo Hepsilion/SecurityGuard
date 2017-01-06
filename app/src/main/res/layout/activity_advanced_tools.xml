@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom_android="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/titlebar"/>
+    <org.android.securityguard.advance.widget.AdvancedToolsView
+        android:id="@+id/atv_num_belongto"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        custom_android:desc="@string/advanced_number_belongto"
+        android:gravity="center_vertical"
+        android:src="@drawable/num_belongto"/>
+    <org.android.securityguard.advance.widget.AdvancedToolsView
+        android:id="@+id/atv_sms_backup"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="3dp"
+        custom_android:desc="@string/advanced_sms_backup"
+        android:src="@drawable/sms_backup"/>
+    <org.android.securityguard.advance.widget.AdvancedToolsView
+        android:id="@+id/atv_sms_restore"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="3dp"
+        custom_android:desc="@string/advanced_sms_restore"
+        android:src="@drawable/sms_restore"/>
+    <org.android.securityguard.advance.widget.AdvancedToolsView
+        android:id="@+id/atv_app_lock"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="3dp"
+        custom_android:desc="@string/advanced_app_lock"
+        android:src="@drawable/app_lock"/>
+</LinearLayout>
