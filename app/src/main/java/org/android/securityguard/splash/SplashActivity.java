@@ -16,7 +16,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置该Activity没有标题栏，在加载布局前调用
         setContentView(R.layout.activity_splash);
 
         mVersion= ApkUtils.getVersion(getApplicationContext());

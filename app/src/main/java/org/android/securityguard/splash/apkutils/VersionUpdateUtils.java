@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 
+import org.android.securityguard.Constants;
 import org.android.securityguard.R;
 import org.android.securityguard.home.HomeActivity;
 import org.apache.http.HttpEntity;
@@ -79,6 +80,49 @@ public class VersionUpdateUtils {
     };
 
     /**
+     * 获取服务器版本号
+     */
+    public void getCloudVersion(){
+        try{
+            HttpClient client = new DefaultHttpClient();
+            HttpConnectionParams.setConnectionTimeout(client.getParams(), 5000); //连接超时
+            HttpConnectionParams.setSoTimeout(client.getParams(), 5000);         //请求超时
+            HttpGet httpGet=new HttpGet(Constants.APK_SERVER_IP+Constants.APK_UPDATE_HTML);
+            HttpResponse execute=client.execute(httpGet);
+
+            //请求和响应成功
+            if(execute.getStatusLine().getStatusCode()==200){
+                HttpEntity entity=execute.getEntity();
+                String result= EntityUtils.toString(entity, "gbk");
+
+                JSONObject jsonObject=new JSONObject(result);
+                String code=jsonObject.getString("code");
+                String desc=jsonObject.getString("desc");
+                String apkurl=jsonObject.getString("apkurl");
+
+                versionEntity=new VersionEntity();
+                versionEntity.versionCode=code;
+                versionEntity.description=desc;
+                versionEntity.apkurl=apkurl;
+
+                if(!mVersion.equals(versionEntity.versionCode)) {
+                    //版本不一致
+                    handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
+                }
+            }
+        } catch(ClientProtocolException e){
+            handler.sendEmptyMessage(MESSAGE_NET_ERROR);
+            e.printStackTrace();
+        } catch (IOException e) {
+            handler.sendEmptyMessage(MESSAGE_IO_ERROR);
+            e.printStackTrace();
+        } catch(JSONException e) {
+            handler.sendEmptyMessage(MESSAGE_JSON_ERROR);
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 弹出更新提示对话框
      * @param versionEntity
      */
@@ -121,7 +165,7 @@ public class VersionUpdateUtils {
      */
     protected void downloadNewApk(String url){
         ApkDownloader downloader=new ApkDownloader();
-        downloader.download(url, "/mnt/sdcard/securityguard2.0.apk", new ApkDownloader.MyCallBack() {
+        downloader.download(url, Constants.APK_LOCAL_FILE, new ApkDownloader.MyCallBack() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
                 mProgressDialog.dismiss();
@@ -146,47 +190,5 @@ public class VersionUpdateUtils {
 
     private void enterHome(){
         handler.sendEmptyMessageDelayed(MESSAGE_ENTERHOME, 2000);
-    }
-
-    /**
-     * 获取服务器版本号
-     */
-    public void getCloudVersion(){
-        try{
-            HttpClient client = new DefaultHttpClient();
-            HttpConnectionParams.setConnectionTimeout(client.getParams(), 5000); //连接超时
-            HttpConnectionParams.setSoTimeout(client.getParams(), 5000);         //请求超时
-            HttpGet httpGet=new HttpGet("http://172.16.25.14:8080/updateinfo.html");
-            HttpResponse execute=client.execute(httpGet);
-
-            //请求和响应成功
-            if(execute.getStatusLine().getStatusCode()==200){
-                HttpEntity entity=execute.getEntity();
-                String result= EntityUtils.toString(entity, "gbk");
-
-                JSONObject jsonObject=new JSONObject(result);
-                String code=jsonObject.getString("code");
-                String desc=jsonObject.getString("desc");
-                String apkurl=jsonObject.getString("apkurl");
-
-                versionEntity=new VersionEntity();
-                versionEntity.versionCode=code;
-                versionEntity.description=desc;
-                versionEntity.apkurl=apkurl;
-                if(!mVersion.equals(versionEntity.versionCode)) {
-                    //版本不一致
-                    handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
-                }
-            }
-        } catch(ClientProtocolException e){
-            handler.sendEmptyMessage(MESSAGE_NET_ERROR);
-            e.printStackTrace();
-        } catch (IOException e) {
-            handler.sendEmptyMessage(MESSAGE_IO_ERROR);
-            e.printStackTrace();
-        } catch(JSONException e) {
-            handler.sendEmptyMessage(MESSAGE_JSON_ERROR);
-            e.printStackTrace();
-        }
     }
 }

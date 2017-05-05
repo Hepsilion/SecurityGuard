@@ -7,6 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
+import org.android.securityguard.Constants;
+
 import java.io.File;
 
 /**
@@ -40,7 +42,7 @@ public class ApkUtils {
         //添加默认分类
         intent.addCategory("android.intent.category.DEFAULT");
         //设置数据和类型
-        intent.setDataAndType(Uri.fromFile(new File("/mnt/sdcard/securityguard2.0.apk")), "application/vnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(new File(Constants.APK_LOCAL_FILE)), "application/vnd.android.package-archive");
         activity.startActivityForResult(intent, 0);
     }
 }

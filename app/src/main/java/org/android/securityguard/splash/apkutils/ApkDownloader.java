@@ -17,6 +17,7 @@ import java.io.File;
 public class ApkDownloader {
     public void download(String url, String localTargetFile, final MyCallBack callBack){
         HttpUtils httpUtils=new HttpUtils();
+        // 使用HttpUtils下载方法下载指定文件
         httpUtils.download(url, localTargetFile, new RequestCallBack<File>() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
@@ -37,7 +38,7 @@ public class ApkDownloader {
     }
 
     /**
-     * 接口：用于监听下载状态的接口
+     * 回调接口：用于监听文件的下载状态
      */
     interface MyCallBack{
         /**下载成功时调用*/

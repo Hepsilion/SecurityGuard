@@ -101,6 +101,10 @@ public class HomeActivity extends Activity {
         }
     }
 
+    /**
+     * 开启新的Activity，不关闭自己
+     * @param clazz
+     */
     public void startActivity(Class<?> clazz){
         Intent intent=new Intent(HomeActivity.this, clazz);
         startActivity(intent);
