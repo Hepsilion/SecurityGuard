@@ -25,7 +25,7 @@ public class SetupPasswordDialog extends Dialog implements View.OnClickListener 
     private MyCallback callback;
 
     public SetupPasswordDialog(Context context){
-        super(context, R.style.dialog_custom);
+        super(context, R.style.dialog_custom);  //引入自定义对话框样式
     }
 
     @Override

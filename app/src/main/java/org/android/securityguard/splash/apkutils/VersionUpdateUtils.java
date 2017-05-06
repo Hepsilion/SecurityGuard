@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 
-import org.android.securityguard.Constants;
+import org.android.securityguard.splash.Constants;
 import org.android.securityguard.R;
 import org.android.securityguard.home.HomeActivity;
 import org.apache.http.HttpEntity;

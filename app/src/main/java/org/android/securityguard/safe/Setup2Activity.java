@@ -12,6 +12,8 @@ import android.widget.Toast;
 import org.android.securityguard.R;
 
 /**
+ * 绑定SIM卡界面
+ *
  * Created by Hepsilion on 2017/1/2.
  */
 

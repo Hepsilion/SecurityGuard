@@ -7,7 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
-import org.android.securityguard.Constants;
+import org.android.securityguard.splash.Constants;
 
 import java.io.File;
 

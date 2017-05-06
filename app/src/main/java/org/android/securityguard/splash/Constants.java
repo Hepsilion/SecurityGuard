@@ -1,4 +1,4 @@
-package org.android.securityguard;
+package org.android.securityguard.splash;
 
 /**
  * Created by Hepsilion on 2017/5/5.

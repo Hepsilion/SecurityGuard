@@ -1,4 +1,4 @@
-package org.android.securityguard;
+package org.android.securityguard.safe;
 
 import android.app.Application;
 import android.content.Context;

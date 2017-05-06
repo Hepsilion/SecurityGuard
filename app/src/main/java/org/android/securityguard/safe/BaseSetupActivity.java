@@ -58,7 +58,7 @@ public abstract class BaseSetupActivity extends Activity {
     }
 
     /**
-     * 永手势识别器去识别事件
+     * 用手势识别器去识别事件
      * @param event
      * @return
      */

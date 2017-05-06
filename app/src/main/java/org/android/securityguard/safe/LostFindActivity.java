@@ -15,6 +15,8 @@ import android.widget.ToggleButton;
 import org.android.securityguard.R;
 
 /**
+ * 设置向导的防盗指令界面
+ *
  * Created by Hepsilion on 2017/1/2.
  */
 

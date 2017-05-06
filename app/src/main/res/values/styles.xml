@@ -17,12 +17,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- 自定义对话框样式 -->
     <style name="dialog_custom" parent="android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:background">#00000000</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item> <!--去掉边框-->
+        <item name="android:windowNoTitle">true</item> <!--无标题栏-->
+        <item name="android:background">#00000000</item> <!--背景颜色为黑色-->
+        <item name="android:windowBackground">@android:color/transparent</item> <!--对话框背景透明-->
     </style>
+
     <!-- 高宽都包裹内容 -->
     <style name="wrapcontent">
         <item name="android:layout_width">wrap_content</item>
@@ -43,6 +45,7 @@
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+
     <!-- 宽度为0dp，高度为包裹内容，权重为1 -->
     <style name="zero_widthwrapcontent">
         <item name="android:layout_width">0dp</item>

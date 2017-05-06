@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import org.android.securityguard.App;
+import org.android.securityguard.safe.App;
 
 /**
  * Created by Hepsilion on 2017/1/2.

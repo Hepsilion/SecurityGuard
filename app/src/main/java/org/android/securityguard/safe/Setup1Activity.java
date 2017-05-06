@@ -7,6 +7,8 @@ import android.widget.Toast;
 import org.android.securityguard.R;
 
 /**
+ * 手机防盗模块的展示界面
+ *
  * Created by Hepsilion on 2017/1/2.
  */
 

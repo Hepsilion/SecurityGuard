@@ -10,6 +10,8 @@ import android.widget.ToggleButton;
 import org.android.securityguard.R;
 
 /**
+ * 设置完成界面
+ *
  * Created by Hepsilion on 2017/1/2.
  */
 

@@ -18,6 +18,11 @@ public class ApkDownloader {
     public void download(String url, String localTargetFile, final MyCallBack callBack){
         HttpUtils httpUtils=new HttpUtils();
         // 使用HttpUtils下载方法下载指定文件
+        /**
+         * url:要下载文件的路径
+         * localTargetFile:文件下载后的本地存放路径
+         * requestCallBack:一个接口对象，用于监听文件下载状态
+         */
         httpUtils.download(url, localTargetFile, new RequestCallBack<File>() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {

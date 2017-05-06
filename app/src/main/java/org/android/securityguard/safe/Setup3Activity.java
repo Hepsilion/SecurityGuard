@@ -12,6 +12,8 @@ import android.widget.Toast;
 import org.android.securityguard.R;
 
 /**
+ * 选择安全联系人界面
+ *
  * Created by Hepsilion on 2017/1/2.
  */
 
@@ -53,7 +55,7 @@ public class Setup3Activity extends BaseSetupActivity {
     @Override
     public void showNext() {
         String safePhone=mInputPhone.getText().toString().trim();
-        if(!TextUtils.isEmpty(safePhone)){
+        if(TextUtils.isEmpty(safePhone)){
             Toast.makeText(this, R.string.setup_enter_security_phoneno, Toast.LENGTH_SHORT).show();
             return;
         }
