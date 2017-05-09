@@ -65,7 +65,7 @@ public class ScanVirusAdapter extends BaseAdapter {
             holder.mAppNameTV.setText(scanAppInfo.appName+"("+scanAppInfo.description+")");
         }
 
-        holder.mScanIconImgV.setImageDrawable(scanAppInfo.appicon);
+        holder.mAppIconImgV.setImageDrawable(scanAppInfo.appicon);
         return view;
     }
 

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.android.securityguard.R;
+import org.android.securityguard.advance.service.AppLockService;
 import org.android.securityguard.process.utils.SystemInfoUtils;
 import org.android.securityguard.settings.widget.SettingView;
 
@@ -53,7 +54,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        //running= SystemInfoUtils.isServiceRunning(SettingsActivity.this, );
+        running= SystemInfoUtils.isServiceRunning(SettingsActivity.this, "org.android.securityguard.advance.service.AppLockService");
+        mAppLockSV.setChecked(running);
         mBlackNumSV.setChecked(mSharedPreferences.getBoolean("BlackNumStatus", true));
         super.onStart();
     }
@@ -68,8 +70,8 @@ public class SettingsActivity extends AppCompatActivity {
                 case R.id.sv_applock_set:
                     saveStatus("AppLockStatus", isChecked);
                     if(isChecked){
-                        //intent=new Intent(SettingsActivity.this, AppLockService.class);
-                        //startService(intent);
+                        intent=new Intent(SettingsActivity.this, AppLockService.class);
+                        startService(intent);
                     }else{
                         stopService(intent);
                     }

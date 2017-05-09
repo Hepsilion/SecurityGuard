@@ -40,7 +40,7 @@ public class BlackNumberDao {
         values.put("mode", blackContactInfo.mode);
 
         long rowid=db.insert("blacknumber", null, values);
-        if(rowid!=-1){//插入不成功
+        if(rowid==-1){//插入不成功
             return false;
         }else{        //插入成功
             return true;

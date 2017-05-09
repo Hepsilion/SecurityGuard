@@ -76,18 +76,19 @@ public class AppLockFragment extends Fragment {
     }
 
     public void fillData(){
-        final List<AppInfo> appInfos=new ArrayList<AppInfo>();
+        final List<AppInfo> aInfos=new ArrayList<AppInfo>();
         new Thread(){
             @Override
             public void run() {
                 for(AppInfo appInfo:appInfos){
-                    if(!dao.find(appInfo.packageName)){
+                    if(dao.find(appInfo.packageName)){
+                        //已加锁
                         appInfo.isLock=true;
-                        appInfos.add(appInfo);
+                        aInfos.add(appInfo);
                     }
                 }
                 Message msg=new Message();
-                msg.obj=appInfos;
+                msg.obj=aInfos;
                 msg.what=10;
                 mHandler.sendMessage(msg);
             }

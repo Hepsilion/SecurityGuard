@@ -43,6 +43,10 @@ public class TrafficDao {
         return gprs;
     }
 
+    /**
+     * 添加今天的流量信息
+     * @param gprs
+     */
     public void insertTodayGPRS(long gprs){
         SQLiteDatabase db=helper.getReadableDatabase();
         Date date=new Date();
@@ -56,6 +60,10 @@ public class TrafficDao {
         db.insert("traffic", null, values);
     }
 
+    /**
+     * 修改今天的流量信息
+     * @param gprs
+     */
     public void updateTodayGPRS(long gprs){
         SQLiteDatabase db=helper.getWritableDatabase();
         Date date=new Date();

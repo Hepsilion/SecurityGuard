@@ -41,6 +41,7 @@ public class ProcessManagerSettingActivity extends AppCompatActivity {
         mShowSysAppsTgb= (ToggleButton) findViewById(R.id.tgb_showsys_process);
         mShowSysAppsTgb.setChecked(mSharedPreferences.getBoolean("showSystemProcess", true));
         mShowSysAppsTgb.setOnCheckedChangeListener(listener);
+
         mKillProcessTgb= (ToggleButton) findViewById(R.id.tgb_killprocess_lockscreen);
         running= SystemInfoUtils.isServiceRunning(ProcessManagerSettingActivity.this, "org.android.securityguard.process.service.AutoKillProcessService");
         mKillProcessTgb.setChecked(running);
@@ -74,7 +75,6 @@ public class ProcessManagerSettingActivity extends AppCompatActivity {
             }
         }
     }
-
 
     private void saveStatus(String string, boolean isChecked){
         SharedPreferences.Editor editor=mSharedPreferences.edit();

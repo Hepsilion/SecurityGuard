@@ -107,6 +107,10 @@ public class SMSBackupActivity extends AppCompatActivity {
                             } catch (IOException e){
                                 e.printStackTrace();
                                 UIUtils.showToast(SMSBackupActivity.this, "读写错误");
+                            } finally {
+                                flag=false;
+                                mProgressButton.setProcess(0);
+                                mHandler.sendEmptyMessage(CHANGE_BUTTON_TEXT);
                             }
                         }
                     }.start();
@@ -114,4 +118,11 @@ public class SMSBackupActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        flag=false;
+        smsBackupUtils.setFlag(flag);
+        super.onDestroy();
+    }
 }

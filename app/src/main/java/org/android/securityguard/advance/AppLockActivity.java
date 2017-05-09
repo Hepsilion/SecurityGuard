@@ -54,6 +54,34 @@ public class AppLockActivity extends AppCompatActivity {
 
         mAppViewPager= (ViewPager) findViewById(R.id.vp_applock);
         mAppViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        mAppViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position==0){
+                    slideUnlockView.setBackgroundResource(R.drawable.slide_view);
+                    slideLockView.setBackgroundColor(getResources().getColor(R.color.transparent));
+                    //未加锁
+                    mLockTV.setTextColor(getResources().getColor(R.color.black));
+                    mUnlockTV.setTextColor(getResources().getColor(R.color.bright_red));
+                }else{
+                    slideLockView.setBackgroundResource(R.drawable.slide_view);
+                    slideUnlockView.setBackgroundColor(getResources().getColor(R.color.transparent));
+                    //加锁
+                    mLockTV.setTextColor(getResources().getColor(R.color.bright_red));
+                    mUnlockTV.setTextColor(getResources().getColor(R.color.black));
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     View.OnClickListener listener=new View.OnClickListener() {
@@ -73,6 +101,9 @@ public class AppLockActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * ViewPager的Adapter，用于控制ViewPager的页面个数与加载条目
+     */
     class MyAdapter extends FragmentPagerAdapter{
         public MyAdapter(FragmentManager fragmentManager){
             super(fragmentManager);

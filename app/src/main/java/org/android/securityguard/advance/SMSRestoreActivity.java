@@ -1,5 +1,7 @@
 package org.android.securityguard.advance;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,19 @@ public class SMSRestoreActivity extends AppCompatActivity {
     private MyCircleProgress mProgressButton;
     private boolean flag=false;
     private SMSRestoreUtils smsRestoreUtils;
+
+    private static final int CHANGE_BUTTON_TEXT=101;
+
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case CHANGE_BUTTON_TEXT:
+                    mProgressButton.setText(R.string.advanced_one_key_backup);
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +98,10 @@ public class SMSRestoreActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 UIUtils.showToast(SMSRestoreActivity.this, "读写错误");
+                            } finally{
+                                flag=false;
+                                mProgressButton.setProcess(0);
+                                mHandler.sendEmptyMessage(CHANGE_BUTTON_TEXT);
                             }
                         }
                     }.start();

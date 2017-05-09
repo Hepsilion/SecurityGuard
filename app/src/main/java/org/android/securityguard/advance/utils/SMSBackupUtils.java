@@ -50,7 +50,7 @@ public class SMSBackupUtils {
             serializer.startTag(null, "smss");
             serializer.attribute(null, "size", String.valueOf(size));
             int process=0;
-            while(cursor.moveToNext() & flag){
+            while(cursor.moveToNext() && flag){
                 serializer.startTag(null, "sms");
 
                 serializer.startTag(null, "body");

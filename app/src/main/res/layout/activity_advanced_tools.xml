@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--使用自定义控件时必须使用XML命名空间xmlns:custom_android="http://schemas.android.com/apk/res-auto"将自定义空间引入到布局-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom_android="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <include layout="@layout/titlebar"/>
+    <!--在使用自定义控件时，每个控件的开始节点和结束节点都为自定义控件类的全路径，其中custom_android:desc和android:src是自定义属性-->
     <org.android.securityguard.advance.widget.AdvancedToolsView
         android:id="@+id/atv_num_belongto"
         android:layout_width="match_parent"

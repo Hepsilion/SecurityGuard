@@ -181,7 +181,7 @@ public class AppManagerActivity extends AppCompatActivity {
         long avail_sd= Environment.getExternalStorageDirectory().getFreeSpace();
         long avail_rom=Environment.getDataDirectory().getFreeSpace();
 
-        //格式化内存
+        // 由于上面的数值为long比较长，因此对其进行格式化使其返回单位为KB或MB的String
         String str_avail_sd= Formatter.formatFileSize(this, avail_sd);
         String str_avail_rom=Formatter.formatFileSize(this, avail_rom);
         mPhoneMemoryTV.setText("剩余手机内存: "+str_avail_rom);

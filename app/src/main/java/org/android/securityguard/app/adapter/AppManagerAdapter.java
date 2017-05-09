@@ -26,6 +26,7 @@ public class AppManagerAdapter extends BaseAdapter {
     private Context context;
 
     public AppManagerAdapter(List<AppInfo> userAppInfos, List<AppInfo> sysAppInfos, Context context){
+        super();
         this.userAppInfos=userAppInfos;
         this.sysAppInfos=sysAppInfos;
         this.context=context;

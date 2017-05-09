@@ -105,6 +105,7 @@ public class ProcessManagerAdapter extends BaseAdapter {
             }else{
                 holder.mCheckBox.setVisibility(View.VISIBLE);
             }
+            holder.mCheckBox.setChecked(taskInfo.isChecked);
         }
 
         return view;

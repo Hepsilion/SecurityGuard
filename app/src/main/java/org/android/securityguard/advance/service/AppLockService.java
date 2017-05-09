@@ -43,6 +43,7 @@ public class AppLockService extends Service {
 
     @Override
     public void onCreate() {
+        System.out.println(22222);
         dao=new AppLockDao(AppLockService.this);
         packageNames=dao.findAll();
 
@@ -55,7 +56,9 @@ public class AppLockService extends Service {
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(receiver, filter);
 
+        //创建Intent实例，用来打开输入密码界面
         intent=new Intent(AppLockService.this, EnterPasswordActivity.class);
+
         activityManager= (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         startAppLockService();
         super.onCreate();
@@ -88,7 +91,7 @@ public class AppLockService extends Service {
     }
 
     /**
-     * 开启监视程序服务
+     * 开启子线程，实时监视被打开的程序
      */
     private void startAppLockService(){
         new Thread(){
@@ -99,7 +102,7 @@ public class AppLockService extends Service {
                     //监视任务栈的情况，最近打开的任务栈在集合的最前面
                     taskInfos=activityManager.getRunningTasks(1);
                     taskInfo=taskInfos.get(0);  //最近使用的任务栈
-                    packageName=taskInfo.topActivity.getPackageName();
+                    packageName=taskInfo.topActivity.getPackageName();System.out.println("--111--");
                     //判断这个包名是否需要被保护
                     if(packageNames.contains(packageName)){
                         //判断当前应用程序是否需要临时停止保护(输入了正确的密码)

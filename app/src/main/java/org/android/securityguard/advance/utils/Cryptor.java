@@ -59,7 +59,7 @@ public class Cryptor {
     }
 
     private static byte[] getRawKey(byte[] seed) throws Exception {
-        SecureRandom rand=SecureRandom.getInstance("SHA1PRNG");
+        SecureRandom rand=SecureRandom.getInstance("SHA1PRNG", "Crypto");
         rand.setSeed(seed);
 
         KeyGenerator keygen=KeyGenerator.getInstance("AES");

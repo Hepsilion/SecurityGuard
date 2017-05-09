@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/light_rose_red">
+        <!--展示正在清理缓存界面-->
         <FrameLayout
             android:id="@+id/fl_cleancache"
             android:layout_width="match_parent"
@@ -49,6 +50,7 @@
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
+        <!--展示缓存清理完成界面-->
         <FrameLayout
             android:id="@+id/fl_finishclean"
             android:layout_width="match_parent"

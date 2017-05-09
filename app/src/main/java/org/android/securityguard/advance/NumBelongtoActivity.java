@@ -74,6 +74,8 @@ public class NumBelongtoActivity extends AppCompatActivity {
             }
         });
 
+        copyDB(dbName);
+
         mSearchBtn= (Button) findViewById(R.id.btn_searchnumbelongto);
         mSearchBtn.setOnClickListener(listener);
     }

@@ -98,6 +98,7 @@ public class CacheCleanActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_finish_cleancache).setOnClickListener(listener);
 
+        // 获取从CacheScanActivity传过来的缓存总大小
         packageManager=getPackageManager();
         Intent intent=getIntent();
         cacheMemory=intent.getLongExtra("cacheMemory", 0);

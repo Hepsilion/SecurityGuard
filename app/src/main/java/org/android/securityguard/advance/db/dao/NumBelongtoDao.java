@@ -18,13 +18,14 @@ public class NumBelongtoDao {
      * @return 归属地
      */
     public static String getLocation(String phonenumber){
-        String location=phonenumber;
+        String location="";
         SQLiteDatabase db=SQLiteDatabase.openDatabase("/data/data/org.android.securityguard/files/address.db", null, SQLiteDatabase.OPEN_READONLY);
 
-        if(phonenumber.matches("^1[34578]\\d{9}$]")){//130 131 132 133 134 135 136 137 138 139
+        //通过正则表达式匹配号段：13X，14X，15X，17X，18X
+        if(phonenumber.matches("^1[34578]\\d{9}$")){//130 131 132 133 134 135 136 137 138 139
             Cursor cursor=db.rawQuery("select location from data2 where id=(select outkey from data1 where id=?)", new String[]{phonenumber.substring(0, 7)});
             if(cursor.moveToNext()){
-                location=cursor.getString(0);
+                location=cursor.getString(cursor.getColumnIndex("location"));
             }
             cursor.close();
         }else{
@@ -74,7 +75,6 @@ public class NumBelongtoDao {
                     break;
             }
         }
-
         db.close();
         return location;
     }

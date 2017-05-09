@@ -38,7 +38,7 @@ public class SMSRestoreUtils {
             int process=0;
             ContentResolver resolver= context.getContentResolver();
             Uri uri= Uri.parse("content://sms/");
-            while(eventType!=XmlPullParser.END_DOCUMENT & flag){
+            while(eventType!=XmlPullParser.END_DOCUMENT && flag){
                 switch (eventType){
                     case XmlPullParser.START_TAG://一个节点的开始
                         if("smss".equals(parser.getName())){
@@ -69,10 +69,11 @@ public class SMSRestoreUtils {
                             values.put("type", smsInfo.type);
                             values.put("date", smsInfo.date);
                             values.put("body", smsInfo.body);
-                            resolver.insert(uri, values);
+                            System.out.println("111"+resolver.insert(uri, values).toString());
                             smsInfo=null;
                             process++;
                             callback.onSMSRestore(process);
+                            System.out.println("111------------------");
                         }
                         break;
                 }

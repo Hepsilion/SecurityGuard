@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.stericson.RootTools.RootTools;
+
 import org.android.securityguard.R;
 import org.android.securityguard.app.entity.AppInfo;
 
@@ -66,21 +68,21 @@ public class EngineUtils {
             intent.setData(Uri.parse("package: "+appInfo.packageName));
             context.startActivity(intent);
         }
-//        else{//系统应用需要root权限，利用linux命令删除文件
-//            if(!RootTools.isRootAvailable()){
-//                Toast.makeText(context, R.string.app_manager_app_uninstall_need_root, Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//            try{
-//                if(RootTools.isAccessGiven()){
-//                    Toast.makeText(context, R.string.app_manager_app_uninstall_permission_grant, Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                RootTools.sendSheel("mount -o remount, rw /system", 3000);
-//                RootTools.sendSheel("rm -r "+appInfo.apkPath, 30000);
-//            }catch(Exception e){
-//                e.printStackTrace();
-//            }
-//        }
+        else{//系统应用需要root权限，利用linux命令删除文件
+            if(!RootTools.isRootAvailable()){
+                Toast.makeText(context, R.string.app_manager_app_uninstall_need_root, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            try{
+                if(RootTools.isAccessGiven()){
+                    Toast.makeText(context, R.string.app_manager_app_uninstall_permission_grant, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                RootTools.sendShell("mount -o remount, rw /system", 3000);
+                RootTools.sendShell("rm -r "+appInfo.apkPath, 30000);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }

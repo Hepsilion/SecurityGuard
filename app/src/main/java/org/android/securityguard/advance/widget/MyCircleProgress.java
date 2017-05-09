@@ -97,6 +97,8 @@ public class MyCircleProgress extends Button {
         /**
          * 参数1:圆弧起始角度，单位为度；参数2:圆弧扫过地角度，顺时针方向，单位为度；参数3:如果为true，在绘制圆弧时将圆心包括在内，通常用来绘制扇形；参数4：画笔
          */
+        if(max==0)
+            return;
         canvas.drawArc(oval, 0, 360*progress/max, false, paint);
         //步骤4：展示文字进度
         paint.setStrokeWidth(0);

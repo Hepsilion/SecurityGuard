@@ -14,7 +14,7 @@ public class AppLockOpenHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table applock(id integer primary key autoincrement, packagename varchar(20)");
+        sqLiteDatabase.execSQL("create table applock(id integer primary key autoincrement, packagename varchar(20))");
     }
 
     @Override

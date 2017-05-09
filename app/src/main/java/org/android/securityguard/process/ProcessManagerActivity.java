@@ -69,8 +69,6 @@ public class ProcessManagerActivity extends AppCompatActivity {
         mMemoryTV= (TextView) findViewById(R.id.tv_memory_processmanager);
         mMemoryTV.setText("可用/总内存: "+Formatter.formatFileSize(ProcessManagerActivity.this, totalAvailMem)+"/"+Formatter.formatFileSize(ProcessManagerActivity.this, totalMen));
 
-
-
         findViewById(R.id.btn_selectall).setOnClickListener(listener);
         findViewById(R.id.btn_select_inverse).setOnClickListener(listener);
         findViewById(R.id.btn_cleanprocess).setOnClickListener(listener);

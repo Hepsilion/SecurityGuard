@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.RemoteException;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -35,11 +36,11 @@ public class InterceptCallReceiver extends BroadcastReceiver {
         }
 
         BlackNumberDao dao=new BlackNumberDao(context);
-        if(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)){
+        if(!intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)){
             String mIncomingNumber="";
             TelephonyManager manager= (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
             switch (manager.getCallState()){
-                case TelephonyManager.CALL_STATE_RINGING:
+                case TelephonyManager.CALL_STATE_RINGING://来电话
                     mIncomingNumber=intent.getStringExtra("incoming_number");
                     int blackContactMode=dao.getBlackContactMode(mIncomingNumber);
                     if(blackContactMode==1 || blackContactMode==3){
@@ -74,7 +75,7 @@ public class InterceptCallReceiver extends BroadcastReceiver {
      */
     public void endCall(Context context){
         try {
-            Class clazz=context.getClassLoader().loadClass("androd.os.ServiceManager");
+            Class clazz=context.getClassLoader().loadClass("android.os.ServiceManager");
             Method method=clazz.getDeclaredMethod("getService", String.class);
             IBinder iBinder= (IBinder) method.invoke(null, Context.TELEPHONY_SERVICE);
             ITelephony iTelephony=ITelephony.Stub.asInterface(iBinder);
